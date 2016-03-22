@@ -3,6 +3,6 @@
 
 require 'wikidata/fetcher'
 
-names = WikiData::Category.new('Category:Members of the House of Representatives of the Philippines', 'es').member_titles
+names = WikiData::Category.new('Category:Members of the House of Representatives of the Philippines', 'en').member_titles
 EveryPolitician::Wikidata.scrape_wikidata(names: { en: names })
 
