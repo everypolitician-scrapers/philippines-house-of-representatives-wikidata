@@ -27,7 +27,7 @@ party_list_16 = EveryPolitician::Wikidata.wikipedia_xpath(
 party_list_17 = EveryPolitician::Wikidata.wikipedia_xpath( 
   url: 'https://en.wikipedia.org/wiki/17th_Congress_of_the_Philippines',
   after: '//span[@id="Party-list_representatives"]',
-  before: '//span[@id="Current_composition"]',
+  before: '//span[@id="References"]',
   xpath: '//table[.//th[.="Representative"]]//tr//td[position() = last() - 2]//a[not(@class="new")]/@title',
 )
 
