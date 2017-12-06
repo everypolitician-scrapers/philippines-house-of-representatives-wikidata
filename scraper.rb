@@ -31,5 +31,13 @@ party_list_17 = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//th[.="Representative"]]//tr//td[position() = last() - 2]//a[not(@class="new")]/@title',
 )
 
-EveryPolitician::Wikidata.scrape_wikidata(names: { en: district_16 | party_list_16 | district_17 | party_list_17 })
+# Find all P39s of the Legislature
+query = <<EOS
+  SELECT DISTINCT ?item WHERE {
+    ?item p:P39 [ ps:P39 wd:Q18002923; pq:P2937 wd:Q25339673 ]
+  }
+EOS
+p39s = EveryPolitician::Wikidata.sparql(query)
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: p39s, names: { en: district_16 | party_list_16 | district_17 | party_list_17 })
 
